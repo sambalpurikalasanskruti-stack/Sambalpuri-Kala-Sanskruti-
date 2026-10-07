@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ସଦସ୍ୟ ପଞ୍ଜୀକରଣ - ସମ୍ବଲପୁରୀ କଳା ସଂସ୍କୃତି</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f5f5f5;margin:0;padding:20px}
+.box{max-width:500px;margin:auto;background:white;padding:20px;border-radius:15px}
+h1{text-align:center}
+input,select,textarea,button{width:100%;padding:12px;margin:8px 0;box-sizing:border-box}
+button{background:#198754;color:white;border:0;border-radius:8px;font-size:16px}
+.card{display:none;margin-top:20px;padding:20px;border:2px solid #198754;border-radius:12px}
+</style>
+</head>
+
+<body>
+<div class="box">
+<h1>ସମ୍ବଲପୁରୀ କଳା ସଂସ୍କୃତି</h1>
+<h2>ସଦସ୍ୟ ପଞ୍ଜୀକରଣ</h2>
+
+<input id="name" placeholder="ଆପଣଙ୍କ ନାମ">
+<input id="mobile" placeholder="ମୋବାଇଲ ନମ୍ବର">
+<input id="address" placeholder="ଠିକଣା">
+
+<select id="category">
+<option value="">କ୍ଷେତ୍ର ବାଛନ୍ତୁ</option>
+<option>କବିତା</option>
+<option>ସାହିତ୍ୟ</option>
+<option>ଗୀତ</option>
+<option>ନୃତ୍ୟ</option>
+<option>କଳା</option>
+<option>ସଂସ୍କୃତି</option>
+</select>
+
+<button onclick="register()">ପଞ୍ଜୀକରଣ କରନ୍ତୁ</button>
+
+<div class="card" id="card">
+<h2>ସଦସ୍ୟ ପରିଚୟ</h2>
+<p><b>Member ID:</b> <span id="id"></span></p>
+<p><b>ନାମ:</b> <span id="showName"></span></p>
+<p><b>ମୋବାଇଲ:</b> <span id="showMobile"></span></p>
+<p><b>କ୍ଷେତ୍ର:</b> <span id="showCategory"></span></p>
+</div>
+</div>
+
+<script>
+function register(){
+let name=document.getElementById("name").value.trim();
+let mobile=document.getElementById("mobile").value.trim();
+let category=document.getElementById("category").value;
+
+if(!name || !mobile || !category){
+alert("ଦୟାକରି ସମସ୍ତ ଆବଶ୍ୟକ ତଥ୍ୟ ଦିଅନ୍ତୁ।");
+return;
+}
+
+let memberID="SKS-"+Date.now().toString().slice(-6);
+
+document.getElementById("id").textContent=memberID;
+document.getElementById("showName").textContent=name;
+document.getElementById("showMobile").textContent=mobile;
+document.getElementById("showCategory").textContent=category;
+document.getElementById("card").style.display="block";
+}
+</script>
+
+</body>
+</html>
